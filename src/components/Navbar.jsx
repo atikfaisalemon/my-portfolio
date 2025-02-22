@@ -1,4 +1,3 @@
-import { div } from "framer-motion/client";
 import { useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
