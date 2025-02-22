@@ -57,14 +57,14 @@ const ProjectCart = ({ project }) => {
             className="w-full max-w-[300px] cursor-pointer rounded-2xl transition-all duration-300 hover:scale-105"
           />
         </a>
-        <div className="flex flex-col gap-4 text-left w-full md:w-[60%]">
+        <div className="flex flex-col gap-4 md:text-left w-full md:w-[60%]">
           <h2 className="text-2xl font-bold text-white">{project.title}</h2>
           <p className="text-gray-400">{project.description}</p>
           <div className="flex flex-wrap gap-3">
             {project.tech.map((tech, index) => (
               <span
                 key={index}
-                className="bg-black/30 rounded-lg px-3 py-1 text-sm text-white"
+                className="bg-black/30 rounded-lg px-3 py-1 text-center text-sm text-white"
               >
                 {tech}
               </span>
