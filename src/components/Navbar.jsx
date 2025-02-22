@@ -43,15 +43,21 @@ const Navbar = () => {
         </a>
       </ul>
       <ul className="hidden md:flex gap-5">
-        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
-          <BsGithub />
-        </li>
-        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
-          <BsLinkedin />
-        </li>
-        <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
-          <BsTwitterX />
-        </li>
+        <a href="https://github.com/atikfaisalemon" target="_blank">
+          <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
+            <BsGithub />
+          </li>
+        </a>
+        <a href="https://www.linkedin.com/in/atikfaysalemon" target="_blank">
+          <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
+            <BsLinkedin />
+          </li>
+        </a>
+        <a href="https://x.com/atikfaisalemon1" target="_blank">
+          <li className="cursor-pointer text-xl opacity-70 transition-all duration-300 hover:opacity-100">
+            <BsTwitterX />
+          </li>
+        </a>
       </ul>
 
       {isOpen ? (
