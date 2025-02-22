@@ -25,7 +25,7 @@ const Tech = () => {
         whileInView="visible"
         transition={{ duration: 0.5 }}
       >
-        Skills
+        Skills - Tech
       </motion.h1>
       <motion.div
         className="flex flex-wrap items-center justify-center gap-10 p-5"

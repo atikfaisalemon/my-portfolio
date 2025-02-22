@@ -18,25 +18,25 @@ const Navbar = () => {
       </a>
       <ul className="hidden md:flex gap-10">
         <a
-          href="home"
+          href="#home"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
           <li>Home</li>
         </a>
         <a
-          href="tech"
+          href="#tech"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
           <li>Tech</li>
         </a>
         <a
-          href="projects"
+          href="#projects"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
           <li>Projects</li>
         </a>
         <a
-          href="contract"
+          href="#contract"
           className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
         >
           <li>Contract</li>
