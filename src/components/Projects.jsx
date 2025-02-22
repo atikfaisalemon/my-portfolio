@@ -4,46 +4,49 @@ const projectsData = [
     title: "Spotify Homepage",
     description: "Explore a static clone of Spotify's homepage",
     tech: ["Tailwind CSS", "JavaScript", "HTML"],
+    link: "https://spotify-homepage.vercel.app/",
   },
   {
     image: "madcaps.png",
     title: "MADCAPS",
     description: "MadCaps is an online cap store",
     tech: ["ReactJs", "Tailwind CSS", "JavaScript", "HTML"],
+    link: "https://github.com/atikfaisalemon/mad-caps",
   },
   {
     image: "Book-Store.png",
     title: "Ebook Store",
     description: "Book Store is an application where users can read eBooks",
-    tech: ["Tailwind CSS", "JavaScript", "ReactJs"],
+    tech: ["Tailwind CSS", "JavaScript", "HTML"],
+    link: "https://github.com/atikfaisalemon/book-store",
   },
   {
     image: "Gear-Suite.png",
     title: "Gear-Suite",
     description: "Product Management Application",
     tech: ["Tailwind CSS", "JavaScript", "ReactJs"],
+    link: "https://github.com/atikfaisalemon/gear-suite-caps",
   },
 ];
 
 const ProjectCart = ({ project }) => {
   return (
-    <div className="bg-white/10 p-6 rounded-lg shadow-lg">
-      <img
-        src={`/${project.image}`} // Corrected the image path
-        alt={project.title}
-        className="w-full cursor-pointer rounded-2xl transition-all duration-300 hover:scale-105 md:w-[300px]"
-      />
-      <div className="flex flex-col gap-5 mt-4">
+    <div>
+      <a href={project.link} target="_blank" rel="noopener noreferrer">
+        <img
+          src={`/${project.image}`} // Image from public folder
+          alt={project.title}
+          className="w-full cursor-pointer rounded-2xl transition-all duration-300 hover:scale-105 md:[w-300px]"
+        />
+      </a>
+      <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
-          <h2 className="text-xl font-semibold">{project.title}</h2>
-          <p className="text-gray-300">{project.description}</p>
+          <div className="text-xl font-semibold">{project.title}</div>
+          <p>{project.description}</p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-5">
           {project.tech.map((tech, index) => (
-            <span
-              key={index}
-              className="bg-black/30 rounded-lg px-3 py-1 text-sm"
-            >
+            <span key={index} className="bg-black/30 rounded-lg p-3">
               {tech}
             </span>
           ))}
@@ -60,9 +63,9 @@ const Projects = () => {
       className="flex min-h-screen w-full flex-col items-center justify-center gap-16 p-4 md:px-14 md:py-24"
     >
       <h1 className="text-4xl font-light text-white md:text-6xl">Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-[1000px] text-white">
+      <div className="flex w-full max-w-[1000px] flex-col gap-16 text-white">
         {projectsData.map((project, index) => (
-          <ProjectCart key={index} project={project} /> // Corrected missing return
+          <ProjectCart key={index} project={project} />
         ))}
       </div>
     </div>
