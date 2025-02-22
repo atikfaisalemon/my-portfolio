@@ -17,6 +17,12 @@ const Contact = () => {
           Want to chat? Send me an E-mail through this button and I'll respond
           whenever I can.
         </p>
+        <a
+          href="mailto:atikfaisalemon@gmail.com"
+          className="text-nowrap rounded-lg border border-indigo-600 bg-black px-5 py-3 text-lg font-bold text-white shadow-lg "
+        >
+          Contact Me
+        </a>
       </div>
     </div>
   );
