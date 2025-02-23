@@ -64,7 +64,7 @@ const ProjectCart = ({ project }) => {
             {project.tech.map((tech, index) => (
               <span
                 key={index}
-                className="bg-black/30 rounded-lg px-3 py-1 text-center text-sm text-white"
+                className="bg-black/30 rounded-lg px-3 py-1 text-center  text-sm text-white"
               >
                 {tech}
               </span>
