@@ -7,17 +7,11 @@ const Navbar = ({ toggleProfile }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const menuOpen = () => {
-    setOpen(!isOpen);
-  };
+  const menuOpen = () => setOpen(!isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
+      setIsVisible(window.scrollY < lastScrollY);
       setLastScrollY(window.scrollY);
     };
 
@@ -27,104 +21,101 @@ const Navbar = ({ toggleProfile }) => {
 
   return (
     <nav
-      className={`fixed top-0 flex w-full items-center justify-between border-b border-b-gray-700 bg-black/10 px-16 py-6 text-white backdrop-blur-md md:justify-evenly transition-transform duration-300 ${
+      className={`fixed top-0 flex w-full items-center justify-between border-b border-gray-700 bg-black/10 px-6 py-4 text-white backdrop-blur-md md:px-16 md:py-6 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
+      {/* Logo & Name */}
       <a
         href="#home"
-        onClick={toggleProfile} // Handle click event to show/hide profile
-        className="flex gap-2 items-center bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent opacity-80 text-2xl font-semibold transition-all duration-300 hover:opacity-100 cursor-pointer"
+        onClick={toggleProfile}
+        className="flex items-center gap-2 text-2xl font-semibold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent opacity-80 transition-all duration-300 hover:opacity-100 cursor-pointer"
       >
         <img
-          className="w-10 h-10 rounded-full border-2 border-blue-800 bg-clip-text"
+          className="w-10 h-10 rounded-full border-2 border-blue-800"
           src="convo.jpg"
-          alt=""
+          alt="logo"
         />
         atikfaysalemon
       </a>
+
+      {/* Desktop Menu */}
       <ul className="hidden md:flex gap-10">
-        <a href="#home" className="cursor-pointer opacity-70 hover:opacity-100">
-          <li>Home</li>
-        </a>
-        <a href="#tech" className="cursor-pointer opacity-70 hover:opacity-100">
-          <li>Tech</li>
-        </a>
-        <a
-          href="#projects"
-          className="cursor-pointer opacity-70 hover:opacity-100"
-        >
-          <li>Projects</li>
-        </a>
-        <a
-          href="#contact"
-          className="cursor-pointer opacity-70 hover:opacity-100"
-        >
-          <li>Contact</li>
-        </a>
-      </ul>
-      <ul className="hidden md:flex gap-5">
-        <a href="https://github.com/atikfaisalemon" target="_blank">
-          <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-            <BsGithub />
+        {["home", "tech", "projects", "contact"].map((item) => (
+          <li key={item}>
+            <a
+              href={`#${item}`}
+              className="opacity-70 transition-all duration-300 hover:opacity-100"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
           </li>
-        </a>
-        <a href="https://www.linkedin.com/in/atikfaysalemon" target="_blank">
-          <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-            <BsLinkedin />
-          </li>
-        </a>
-        <a href="https://x.com/atikfaisalemon1" target="_blank">
-          <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-            <BsTwitterX />
-          </li>
-        </a>
+        ))}
       </ul>
 
+      {/* Social Links */}
+      <ul className="hidden md:flex gap-5">
+        {[
+          { icon: <BsGithub />, link: "https://github.com/atikfaisalemon" },
+          {
+            icon: <BsLinkedin />,
+            link: "https://www.linkedin.com/in/atikfaysalemon",
+          },
+          { icon: <BsTwitterX />, link: "https://x.com/atikfaisalemon1" },
+        ].map(({ icon, link }, index) => (
+          <li key={index}>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl opacity-70 transition-all duration-300 hover:opacity-100"
+            >
+              {icon}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {/* Mobile Menu Icon */}
       {isOpen ? (
-        <BiX className="block md:hidden text-4xl" onClick={menuOpen} />
+        <BiX
+          className="block md:hidden text-4xl cursor-pointer"
+          onClick={menuOpen}
+        />
       ) : (
-        <BiMenu className="block md:hidden text-4xl" onClick={menuOpen} />
+        <BiMenu
+          className="block md:hidden text-4xl cursor-pointer"
+          onClick={menuOpen}
+        />
       )}
 
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start gap-10 border-1 border-gray-800 bg-black/50 p-12">
-          <ul className="flex flex-col gap-8">
-            <a
-              href="#home"
-              className="cursor-pointer opacity-70 hover:opacity-100"
-            >
-              <li>Home</li>
-            </a>
-            <a
-              href="#tech"
-              className="cursor-pointer opacity-70 hover:opacity-100"
-            >
-              <li>Tech</li>
-            </a>
-            <a
-              href="#projects"
-              className="cursor-pointer opacity-70 hover:opacity-100"
-            >
-              <li>Projects</li>
-            </a>
-            <a
-              href="#contact"
-              className="cursor-pointer opacity-70 hover:opacity-100"
-            >
-              <li>Contact</li>
-            </a>
+        <div className="fixed right-0 top-[84px] flex h-screen w-2/3 flex-col items-start gap-10 border-l border-gray-800 bg-black/90 p-8 transition-all duration-300 md:hidden">
+          <ul className="flex flex-col gap-6 text-lg">
+            {["home", "tech", "projects", "contact"].map((item) => (
+              <li key={item}>
+                <a
+                  href={`#${item}`}
+                  className="opacity-70 transition-all duration-300 hover:opacity-100"
+                  onClick={menuOpen}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </a>
+              </li>
+            ))}
           </ul>
           <ul className="flex gap-5">
-            <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-              <BsGithub />
-            </li>
-            <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-              <BsLinkedin />
-            </li>
-            <li className="cursor-pointer text-xl opacity-70 hover:opacity-100">
-              <BsTwitterX />
-            </li>
+            {[<BsGithub />, <BsLinkedin />, <BsTwitterX />].map(
+              (icon, index) => (
+                <li
+                  key={index}
+                  className="text-xl opacity-70 transition-all duration-300 hover:opacity-100"
+                >
+                  {icon}
+                </li>
+              )
+            )}
           </ul>
         </div>
       )}
