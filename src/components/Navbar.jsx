@@ -41,16 +41,24 @@ const Navbar = ({ toggleProfile }) => {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-10">
-        {["home", "tech", "projects", "contact"].map((item) => (
-          <li key={item}>
-            <a
-              href={`#${item}`}
-              className="opacity-70 transition-all duration-300 hover:opacity-100"
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </a>
-          </li>
-        ))}
+        <a href="#home" className="cursor-pointer opacity-70 hover:opacity-100">
+          <li>Home</li>
+        </a>
+        <a href="#tech" className="cursor-pointer opacity-70 hover:opacity-100">
+          <li>Tech</li>
+        </a>
+        <a
+          href="#projects"
+          className="cursor-pointer opacity-70 hover:opacity-100"
+        >
+          <li>Projects</li>
+        </a>
+        <a
+          href="#contact"
+          className="cursor-pointer opacity-70 hover:opacity-100"
+        >
+          <li>Contact</li>
+        </a>
       </ul>
 
       {/* Social Links */}
