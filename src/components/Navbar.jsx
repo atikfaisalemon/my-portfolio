@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 
-const Navbar = () => {
+const Navbar = ({ toggleProfile }) => {
   const [isOpen, setOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -33,7 +33,8 @@ const Navbar = () => {
     >
       <a
         href="#home"
-        className="flex gap-2 items-center bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent opacity-80 text-2xl font-semibold transition-all duration-300 hover:opacity-100"
+        onClick={toggleProfile} // Handle click event to show/hide profile
+        className="flex gap-2 items-center bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent opacity-80 text-2xl font-semibold transition-all duration-300 hover:opacity-100 cursor-pointer"
       >
         <img
           className="w-10 h-10 rounded-full border-2 border-blue-800 bg-clip-text"

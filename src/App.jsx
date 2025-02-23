@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Tech from "./components/Tech";
@@ -6,6 +7,10 @@ import Contact from "./components/Contact";
 import "./App.css";
 
 function App() {
+  const [isProfileVisible, setProfileVisible] = useState(false);
+  const toggleProfile = () => {
+    setProfileVisible((prev) => !prev);
+  };
   return (
     <>
       {/* Full-screen background */}
@@ -13,8 +18,8 @@ function App() {
 
       {/* Main content */}
       <main className="flex flex-col items-center px-4 md:px-8 lg:px-16 z-10">
-        <Navbar />
-        <Hero />
+        <Navbar toggleProfile={toggleProfile} />
+        <Hero isProfileVisible={isProfileVisible} />
         <Tech />
         <Projects />
         <Contact />
