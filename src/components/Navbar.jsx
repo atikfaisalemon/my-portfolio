@@ -68,7 +68,7 @@ const Navbar = ({ toggleProfile }) => {
           <a
             href="/Atik_Faisal_Emon_CV.pdf"
             download
-            className="text-[25px] opacity-70 transition-all duration-300 hover:opacity-100"
+            className="text-xl opacity-70 transition-all duration-300 hover:opacity-100"
           >
             <TbFileCv />
           </a>
