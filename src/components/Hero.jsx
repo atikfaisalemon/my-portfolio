@@ -4,7 +4,7 @@ const Hero = ({ isProfileVisible }) => {
   return (
     <div
       id="home"
-      className="px-16 flex min-h-screen w-full items-center justify-center py-24 md:px-32"
+      className="px-16 flex min-h-screen w-[400px] md:w-full items-center justify-center py-24 md:px-32"
     >
       <div className="flex flex-col items-center justify-center gap-10 text-white">
         {isProfileVisible && (
